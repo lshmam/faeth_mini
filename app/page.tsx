@@ -46,8 +46,8 @@ export default function Home() {
           <h2 className="text-sm">about us</h2>
           <div className="flex-1"></div>
           <p className="text-sm text-muted-foreground my-4">
-            functional aesthetic studio focused on branidng, products and
-            workflows.
+            functional aesthetic design studio focused on building products that
+            give us hope.
           </p>
           <div className="flex-1"></div>
           <p className="text-sm text-muted-foreground">vancouver based</p>
