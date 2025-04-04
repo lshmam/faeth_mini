@@ -3,6 +3,7 @@ import type { Metadata } from "next"
 import { JetBrains_Mono } from "next/font/google"
 import { ThemeProvider } from "next-themes"
 import "./globals.css"
+import { FaviconProvider } from "@/components/favicon-provider"
 
 const mono = JetBrains_Mono({ subsets: ["latin"] })
 
@@ -20,7 +21,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={mono.className}>
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
-          {children}
+          <FaviconProvider>{children}</FaviconProvider>
         </ThemeProvider>
       </body>
     </html>
