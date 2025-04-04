@@ -15,7 +15,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       <div className="flex flex-wrap gap-2 mb-8">
         {project.tags.map((tag, index) => (
-          <span key={index} className="text-xs px-3 py-1 bg-secondary rounded-md text-muted-foreground">
+          <span key={index} className="text-sm px-3 py-1 bg-secondary rounded-md text-muted-foreground">
             {tag}
           </span>
         ))}
@@ -23,7 +23,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       <div className="mt-auto">
         <Link href={`/portfolio/${project.id}`}>
-          <button className="w-full bg-secondary hover:bg-accent text-foreground py-2 rounded-md transition-colors duration-200">
+          <button className="w-full bg-secondary hover:bg-accent text-foreground py-2 rounded-md transition-colors duration-200 text-sm">
             view
           </button>
         </Link>

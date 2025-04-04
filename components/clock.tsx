@@ -1,14 +1,14 @@
-"use client";
+"use client"
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from "react"
 
 export function Clock() {
-  const [time, setTime] = useState("");
-  const [loaded, setLoaded] = useState(false);
+  const [time, setTime] = useState("")
+  const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
     const updateTime = () => {
-      const now = new Date();
+      const now = new Date()
 
       // Format time as HH:MM:SS
       const timeString = now.toLocaleTimeString("en-US", {
@@ -16,22 +16,23 @@ export function Clock() {
         hour: "2-digit",
         minute: "2-digit",
         second: "2-digit",
-      });
+      })
 
-      setTime(timeString);
-      setLoaded(true);
-    };
+      setTime(timeString)
+      setLoaded(true)
+    }
 
     // Update immediately and then every second
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
+    updateTime()
+    const interval = setInterval(updateTime, 1000)
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(interval)
+  }, [])
 
   return (
-    <div className="text-center text-sm text-muted-foreground">
-      <div>{loaded ? time : "time"}</div>
+    <div className="text-center">
+      <div className="text-sm text-muted-foreground">{loaded ? time : "time"}</div>
     </div>
-  );
+  )
 }
+

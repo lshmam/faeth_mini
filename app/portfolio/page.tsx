@@ -60,8 +60,8 @@ export default function Portfolio() {
 
   return (
     <main className="min-h-screen bg-background text-foreground p-6">
-      <header className="flex justify-between items-center mb-8">
-        <div className="text-sm text-muted-foreground">
+      <header className="grid grid-cols-3 items-center mb-16">
+        <div className="text-sm text-muted-foreground justify-self-start">
           <Link href="/" className="hover:text-foreground transition">
             main
           </Link>
@@ -69,6 +69,28 @@ export default function Portfolio() {
           <span>portfolio</span>
         </div>
         <Clock />
+        <div className="text-sm text-muted-foreground justify-self-end">
+          {/* Use different date formats for mobile and desktop */}
+          <span className="hidden md:inline">
+            {new Date()
+              .toLocaleDateString("en-US", {
+                weekday: "long",
+                month: "long",
+                day: "numeric",
+                year: "numeric",
+              })
+              .toLowerCase()}
+          </span>
+          <span className="md:hidden">
+            {new Date()
+              .toLocaleDateString("en-US", {
+                day: "numeric",
+                month: "numeric",
+                year: "numeric",
+              })
+              .toLowerCase()}
+          </span>
+        </div>
       </header>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
@@ -78,35 +100,36 @@ export default function Portfolio() {
       </div>
 
       {totalPages > 1 && (
-        <div className="flex justify-center mt-8 gap-2">
+        <div className="flex justify-center mt-8 gap-4">
           <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
-            className="px-4 py-2 bg-secondary rounded-md disabled:opacity-50 transition-colors duration-200"
+            className="w-8 h-8 flex items-center justify-center bg-secondary rounded-md disabled:opacity-50 transition-all duration-200 hover:bg-accent hover:shadow-sm text-sm"
+            aria-label="Previous page"
           >
-            prev
+            ←
           </button>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-4">
             {Array.from({ length: totalPages }, (_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrentPage(i + 1)}
-                className={`w-8 h-8 rounded-md flex items-center justify-center transition-colors duration-200 ${
-                  currentPage === i + 1 ? "bg-foreground text-background" : "bg-secondary text-foreground"
+                className={`w-6 h-1 rounded-full transition-all duration-200 ${
+                  currentPage === i + 1 ? "bg-foreground" : "bg-secondary"
                 }`}
-              >
-                {i + 1}
-              </button>
+                aria-label={`Page ${i + 1}`}
+              />
             ))}
           </div>
 
           <button
             onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
             disabled={currentPage === totalPages}
-            className="px-4 py-2 bg-secondary rounded-md disabled:opacity-50 transition-colors duration-200"
+            className="w-8 h-8 flex items-center justify-center bg-secondary rounded-md disabled:opacity-50 transition-all duration-200 hover:bg-accent hover:shadow-sm text-sm"
+            aria-label="Next page"
           >
-            next
+            →
           </button>
         </div>
       )}

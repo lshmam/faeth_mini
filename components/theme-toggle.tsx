@@ -1,35 +1,31 @@
-"use client";
+"use client"
 
-import { useTheme } from "next-themes";
-import { useEffect, useState } from "react";
+import { useTheme } from "next-themes"
+import { useEffect, useState } from "react"
 
 export function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
 
   // Avoid hydration mismatch
   useEffect(() => {
-    setMounted(true);
-  }, []);
+    setMounted(true)
+  }, [])
 
   if (!mounted) {
     return (
       <div className="grid grid-cols-2 gap-2">
-        <button className="bg-secondary text-foreground py-2 rounded-md text-sm">
-          light
-        </button>
-        <button className="bg-secondary text-foreground py-2 rounded-md text-sm">
-          dark
-        </button>
+        <button className="bg-secondary text-foreground py-2 rounded-md opacity-50 text-sm">light</button>
+        <button className="bg-secondary text-foreground py-2 rounded-md text-sm">dark</button>
       </div>
-    );
+    )
   }
 
   return (
     <div className="grid grid-cols-2 gap-2">
       <button
         onClick={() => setTheme("light")}
-        className={`bg-secondary hover:bg-accent text-foreground py-2 rounded-md transition text-sm ${
+        className={`bg-secondary hover:bg-accent text-foreground py-2 rounded-md transition-all duration-200 hover:shadow-md hover:translate-y-[-2px] text-sm ${
           theme === "light" ? "border border-foreground" : ""
         }`}
       >
@@ -37,12 +33,13 @@ export function ThemeToggle() {
       </button>
       <button
         onClick={() => setTheme("dark")}
-        className={`bg-secondary hover:bg-accent text-foreground py-2 rounded-md transition text-sm ${
+        className={`bg-secondary hover:bg-accent text-foreground py-2 rounded-md transition-all duration-200 hover:shadow-md hover:translate-y-[-2px] text-sm ${
           theme === "dark" ? "border border-foreground" : ""
         }`}
       >
         dark
       </button>
     </div>
-  );
+  )
 }
+
