@@ -87,7 +87,7 @@ export default function Blog() {
             ←
           </button>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-4 h-12 relative">
             {Array.from({ length: totalPages }, (_, i) => (
               <button
                 key={i}
