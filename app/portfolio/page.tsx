@@ -9,43 +9,38 @@ import { ProjectCard } from "@/components/project-card"
 const projects = [
   {
     id: 1,
-    title: "digital experience",
-    tags: ["design system", "research", "concept"],
+    title: "ollo: a mindfulness wearable",
+    tags: ["research", "concept", "development"],
   },
   {
     id: 2,
-    title: "brand identity",
-    tags: ["design system", "research", "startup"],
+    title: "chakra.engineering",
+    tags: ["digital-experience", "product design", "startup"],
   },
   {
     id: 3,
-    title: "web platform",
-    tags: ["research", "tokens", "concept"],
+    title: "daemonwear",
+    tags: ["headless-ecommerce", "marketing", "design"],
   },
   {
     id: 4,
-    title: "mobile app",
-    tags: ["research", "tokens", "concept"],
+    title: "silo health: blockchain based medical record sharing platform",
+    tags: ["blockchain", "branding", "concept"],
   },
   {
     id: 5,
-    title: "icon system",
-    tags: ["iconography", "graphic design", "guidelines"],
+    title: "corechallenges: a platform to discuss the premier issues of our world",
+    tags: ["fullstack", "concept", "platform"],
   },
   {
     id: 6,
-    title: "dashboard",
+    title: "bubbletask: todo dashboard",
     tags: ["design system", "analytics", "saas"],
   },
   {
     id: 7,
-    title: "e-commerce",
-    tags: ["design system", "research", "concept"],
-  },
-  {
-    id: 8,
-    title: "landing page",
-    tags: ["design system", "marketing", "concept"],
+    title: "driving school landing page",
+    tags: ["design", "lead generation"],
   },
 ]
 
