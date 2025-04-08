@@ -49,7 +49,7 @@ const projects = [
   },
 ]
 
-const ITEMS_PER_PAGE = 6
+const ITEMS_PER_PAGE = 8
 
 export default function Portfolio() {
   const [currentPage, setCurrentPage] = useState(1)
@@ -100,7 +100,7 @@ export default function Portfolio() {
       </div>
 
       {totalPages > 1 && (
-        <div className="flex justify-center mt-8 gap-4 h-12 relative">
+        <div className="flex justify-center mt-8 gap-4">
           <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
