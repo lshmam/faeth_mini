@@ -81,28 +81,26 @@ export default function Blog() {
         </div>
 
         {totalPages > 1 && (
-          <div className="flex justify-center mt-8 gap-2">
+          <div className="flex justify-center mt-8 gap-4">
             <button
               onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
               disabled={currentPage === 1}
-              className="px-4 py-2 bg-secondary rounded-md disabled:opacity-50 transition-all duration-200 hover:bg-accent hover:shadow-md hover:translate-y-[-2px] text-sm"
+              className="w-8 h-8 flex items-center justify-center bg-secondary rounded-md disabled:opacity-50 transition-all duration-200 hover:bg-accent hover:shadow-md hover:translate-y-[-2px] text-sm"
+              aria-label="Previous page"
             >
-              prev
+              ←
             </button>
 
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-4">
               {Array.from({ length: totalPages }, (_, i) => (
                 <button
                   key={i}
                   onClick={() => setCurrentPage(i + 1)}
-                  className={`w-8 h-8 rounded-md flex items-center justify-center transition-all duration-200 hover:shadow-md hover:translate-y-[-2px] ${
-                    currentPage === i + 1
-                      ? "bg-foreground text-background"
-                      : "bg-secondary text-foreground hover:bg-accent"
+                  className={`w-6 h-1 rounded-full transition-all duration-200 ${
+                    currentPage === i + 1 ? "bg-foreground" : "bg-secondary"
                   }`}
-                >
-                  {i + 1}
-                </button>
+                  aria-label={`Page ${i + 1}`}
+                />
               ))}
             </div>
 
@@ -111,9 +109,10 @@ export default function Blog() {
                 setCurrentPage((prev) => Math.min(prev + 1, totalPages))
               }
               disabled={currentPage === totalPages}
-              className="px-4 py-2 bg-secondary rounded-md disabled:opacity-50 transition-all duration-200 hover:bg-accent hover:shadow-md hover:translate-y-[-2px] text-sm"
+              className="w-8 h-8 flex items-center justify-center bg-secondary rounded-md disabled:opacity-50 transition-all duration-200 hover:bg-accent hover:shadow-md hover:translate-y-[-2px] text-sm"
+              aria-label="Next page"
             >
-              next
+              →
             </button>
           </div>
         )}
