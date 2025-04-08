@@ -67,14 +67,11 @@ export default function Home() {
         <div className="border border-border hover:border-foreground rounded-lg p-6 col-span-1 md:col-start-3 md:row-start-3 md:col-span-2 md:row-span-1 transition-colors duration-200">
           <h2 className="text-sm mb-8">contact us</h2>
           <div className="grid grid-cols-3 gap-2 mt-4">
-            <a
-              href="create@faeth.studio"
-              target="_blank"
-  rel="noopener noreferrer"
-              className="bg-secondary hover:bg-accent text-center py-2 rounded-md transition-all duration-200 hover:shadow-md hover:translate-y-[-2px] text-sm"
-            >
+           <a href="mailto:create@faeth.studio"
+              className="bg-secondary hover:bg-accent text-center py-2 rounded-md transition-all duration-200 hover:shadow-md hover:translate-y-[-2px] text-sm">
               email
             </a>
+
             <a
               href="https://www.youtube.com/@faeth.studio"
                target="_blank"
