@@ -100,7 +100,7 @@ export default function Portfolio() {
       </div>
 
       {totalPages > 1 && (
-        <div className="flex justify-center mt-8 gap-4">
+        <div className="flex justify-center mt-8 gap-4 h-12 relative">
           <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
