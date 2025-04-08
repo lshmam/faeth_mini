@@ -76,39 +76,40 @@ export default function Blog() {
           ))}
         </div>
 
-        {totalPages > 1 && (
-          <div className="flex justify-center mt-8 gap-2">
-            <button
-              onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
-              disabled={currentPage === 1}
-              className="px-4 py-2 bg-secondary rounded-md disabled:opacity-50 transition-colors duration-200"
-            >
-              prev
-            </button>
+         {totalPages > 1 && (
+        <div className="flex justify-center mt-8 gap-4">
+          <button
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+            className="w-8 h-8 flex items-center justify-center bg-secondary rounded-md disabled:opacity-50 transition-all duration-200 hover:bg-accent hover:shadow-sm text-sm"
+            aria-label="Previous page"
+          >
+            ←
+          </button>
 
-            <div className="flex items-center gap-2">
-              {Array.from({ length: totalPages }, (_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setCurrentPage(i + 1)}
-                  className={`w-8 h-8 rounded-md flex items-center justify-center transition-colors duration-200 ${
-                    currentPage === i + 1 ? "bg-foreground text-background" : "bg-secondary text-foreground"
-                  }`}
-                >
-                  {i + 1}
-                </button>
-              ))}
-            </div>
-
-            <button
-              onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
-              disabled={currentPage === totalPages}
-              className="px-4 py-2 bg-secondary rounded-md disabled:opacity-50 transition-colors duration-200"
-            >
-              next
-            </button>
+          <div className="flex items-center gap-4">
+            {Array.from({ length: totalPages }, (_, i) => (
+              <button
+                key={i}
+                onClick={() => setCurrentPage(i + 1)}
+                className={`w-6 h-1 rounded-full transition-all duration-200 ${
+                  currentPage === i + 1 ? "bg-foreground" : "bg-secondary"
+                }`}
+                aria-label={`Page ${i + 1}`}
+              />
+            ))}
           </div>
-        )}
+
+          <button
+            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+            className="w-8 h-8 flex items-center justify-center bg-secondary rounded-md disabled:opacity-50 transition-all duration-200 hover:bg-accent hover:shadow-sm text-sm"
+            aria-label="Next page"
+          >
+            →
+          </button>
+        </div>
+      )}
       </div>
     </main>
   )
