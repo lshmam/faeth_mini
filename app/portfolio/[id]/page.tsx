@@ -6,77 +6,68 @@ import { notFound } from "next/navigation"
 const projects = [
   {
     id: 1,
-    title: "digital experience",
+    title: "ollo: a mindfulness wearable",
     description:
-      "A comprehensive digital experience platform designed for modern businesses. This project focused on creating an intuitive interface with a robust design system.",
-    tags: ["design system", "research", "concept"],
+      "A wearable device designed to enhance focus and self-awareness through mindfulness techniques. It blends hardware innovation with behavioral design.",
+    tags: ["research", "concept", "development"],
     year: "2023",
-    client: "tech innovators",
+    client: "ollo labs",
   },
   {
     id: 2,
-    title: "brand identity",
+    title: "chakra.engineering",
     description:
-      "Complete brand identity redesign for a growing startup. The project included logo design, typography, color palette, and brand guidelines.",
-    tags: ["design system", "research", "startup"],
+      "A digital experience studio reimagining engineering workflows through immersive product design and branding.",
+    tags: ["digital-experience", "product design", "startup"],
     year: "2023",
-    client: "startup ventures",
+    client: "chakra.engineering",
   },
   {
     id: 3,
-    title: "web platform",
+    title: "daemonwear",
     description:
-      "A scalable web platform built with modern technologies. The focus was on performance, accessibility, and user experience.",
-    tags: ["research", "tokens", "concept"],
-    year: "2022",
-    client: "digital solutions",
+      "A headless eCommerce fashion brand blending digital storytelling with performance marketing and sleek design.",
+    tags: ["headless-ecommerce", "marketing", "design"],
+    year: "2024",
+    client: "daemonwear",
   },
   {
     id: 4,
-    title: "mobile app",
+    title: "silo health",
     description:
-      "Intuitive mobile application designed for both iOS and Android platforms. The project emphasized user-centered design principles.",
-    tags: ["research", "tokens", "concept"],
-    year: "2022",
-    client: "app innovators",
+      "Blockchain-based medical record sharing platform aimed at giving users control and privacy over their health data.",
+    tags: ["blockchain", "branding", "concept"],
+    year: "2023",
+    client: "silo health",
   },
   {
     id: 5,
-    title: "icon system",
+    title: "corechallenges",
     description:
-      "Comprehensive icon system with over 200 unique icons. The system was designed to be scalable, consistent, and adaptable to various contexts.",
-    tags: ["iconography", "graphic design", "guidelines"],
-    year: "2021",
-    client: "design collective",
+      "A platform for public discourse on the world's most pressing issues. Users can share perspectives and explore structured debates.",
+    tags: ["fullstack", "concept", "platform"],
+    year: "2024",
+    client: "corechallenges",
   },
   {
     id: 6,
-    title: "dashboard",
+    title: "bubbletask",
     description:
-      "Data visualization dashboard for a SaaS platform. The project focused on presenting complex data in an accessible and actionable format.",
+      "A minimalistic and visual todo dashboard integrating task prioritization, time tracking, and productivity analytics.",
     tags: ["design system", "analytics", "saas"],
-    year: "2021",
-    client: "data analytics",
+    year: "2023",
+    client: "bubbletask",
   },
   {
     id: 7,
-    title: "e-commerce",
+    title: "driving school landing page",
     description:
-      "Full e-commerce platform with a focus on conversion optimization and user experience. The design prioritized simplicity and ease of navigation.",
-    tags: ["design system", "research", "concept"],
-    year: "2020",
-    client: "retail solutions",
+      "A sleek, conversion-focused landing page for a local driving school, optimized for SEO and lead generation.",
+    tags: ["design", "lead generation"],
+    year: "2024",
+    client: "eastvan driving school",
   },
-  {
-    id: 8,
-    title: "landing page",
-    description:
-      "High-converting landing page designed for a product launch. The project included A/B testing and iterative design improvements.",
-    tags: ["design system", "marketing", "concept"],
-    year: "2020",
-    client: "product launch",
-  },
-]
+];
 
 export default function ProjectDetail({ params }: { params: { id: string } }) {
   const projectId = Number.parseInt(params.id)
