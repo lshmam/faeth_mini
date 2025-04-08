@@ -1,6 +1,6 @@
-import Link from "next/link"
-import { Clock } from "@/components/clock"
-import { notFound } from "next/navigation"
+import Link from "next/link";
+import { Clock } from "@/components/clock";
+import { notFound } from "next/navigation";
 
 // Sample project data with more details
 const projects = [
@@ -70,11 +70,11 @@ const projects = [
 ];
 
 export default function ProjectDetail({ params }: { params: { id: string } }) {
-  const projectId = Number.parseInt(params.id)
-  const project = projects.find((p) => p.id === projectId)
+  const projectId = Number.parseInt(params.id);
+  const project = projects.find((p) => p.id === projectId);
 
   if (!project) {
-    notFound()
+    notFound();
   }
 
   return (
@@ -100,7 +100,10 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
 
           <div className="flex flex-wrap gap-2 mb-8">
             {project.tags.map((tag, index) => (
-              <span key={index} className="text-xs px-3 py-1 bg-secondary rounded-md text-muted-foreground">
+              <span
+                key={index}
+                className="text-xs px-3 py-1 bg-secondary rounded-md text-muted-foreground"
+              >
                 {tag}
               </span>
             ))}
@@ -108,7 +111,9 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             <div>
-              <h2 className="text-sm text-muted-foreground mb-2">description</h2>
+              <h2 className="text-sm text-muted-foreground mb-2">
+                description
+              </h2>
               <p className="text-foreground">{project.description}</p>
             </div>
 
@@ -132,7 +137,7 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
           <div className="flex justify-between">
             {projectId > 1 && (
               <Link href={`/portfolio/${projectId - 1}`}>
-                <button className="px-4 py-2 bg-secondary hover:bg-accent rounded-md transition-colors duration-200">
+                <button className="px-4 py-2 bg-secondary hover:bg-accent rounded-md transition-all duration-200 hover:shadow-md hover:translate-y-[-2px] text-sm">
                   previous project
                 </button>
               </Link>
@@ -140,7 +145,7 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
 
             {projectId < projects.length && (
               <Link href={`/portfolio/${projectId + 1}`} className="ml-auto">
-                <button className="px-4 py-2 bg-secondary hover:bg-accent rounded-md transition-colors duration-200">
+                <button className="px-4 py-2 bg-secondary hover:bg-accent rounded-md transition-all duration-200 hover:shadow-md hover:translate-y-[-2px] text-sm">
                   next project
                 </button>
               </Link>
@@ -149,6 +154,5 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
         </div>
       </div>
     </main>
-  )
+  );
 }
-

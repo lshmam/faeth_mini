@@ -1,6 +1,6 @@
-import Link from "next/link"
-import { Clock } from "@/components/clock"
-import { notFound } from "next/navigation"
+import Link from "next/link";
+import { Clock } from "@/components/clock";
+import { notFound } from "next/navigation";
 
 // Sample blog post data with full content
 const blogPosts = [
@@ -137,14 +137,14 @@ const blogPosts = [
     date: "2023-08-14",
     tags: ["accessibility", "inclusive design", "ux"],
   },
-]
+];
 
 export default function BlogPost({ params }: { params: { id: string } }) {
-  const postId = Number.parseInt(params.id)
-  const post = blogPosts.find((p) => p.id === postId)
+  const postId = Number.parseInt(params.id);
+  const post = blogPosts.find((p) => p.id === postId);
 
   if (!post) {
-    notFound()
+    notFound();
   }
 
   // Format the date to be more readable
@@ -154,7 +154,7 @@ export default function BlogPost({ params }: { params: { id: string } }) {
       month: "long",
       day: "numeric",
     })
-    .toLowerCase()
+    .toLowerCase();
 
   return (
     <main className="min-h-screen bg-background text-foreground p-6">
@@ -182,7 +182,10 @@ export default function BlogPost({ params }: { params: { id: string } }) {
 
           <div className="flex flex-wrap gap-2 mb-8">
             {post.tags.map((tag, index) => (
-              <span key={index} className="text-xs px-3 py-1 bg-secondary rounded-md text-muted-foreground">
+              <span
+                key={index}
+                className="text-xs px-3 py-1 bg-secondary rounded-md text-muted-foreground"
+              >
                 {tag}
               </span>
             ))}
@@ -199,7 +202,7 @@ export default function BlogPost({ params }: { params: { id: string } }) {
           <div className="flex justify-between mt-12">
             {postId > 1 && (
               <Link href={`/blog/${postId - 1}`}>
-                <button className="px-4 py-2 bg-secondary hover:bg-accent rounded-md transition-colors duration-200">
+                <button className="px-4 py-2 bg-secondary hover:bg-accent rounded-md transition-all duration-200 hover:shadow-md hover:translate-y-[-2px] text-sm">
                   previous post
                 </button>
               </Link>
@@ -207,7 +210,7 @@ export default function BlogPost({ params }: { params: { id: string } }) {
 
             {postId < blogPosts.length && (
               <Link href={`/blog/${postId + 1}`} className="ml-auto">
-                <button className="px-4 py-2 bg-secondary hover:bg-accent rounded-md transition-colors duration-200">
+                <button className="px-4 py-2 bg-secondary hover:bg-accent rounded-md transition-all duration-200 hover:shadow-md hover:translate-y-[-2px] text-sm">
                   next post
                 </button>
               </Link>
@@ -216,6 +219,5 @@ export default function BlogPost({ params }: { params: { id: string } }) {
         </div>
       </article>
     </main>
-  )
+  );
 }
-

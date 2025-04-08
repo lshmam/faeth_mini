@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { useState } from "react"
-import { Clock } from "@/components/clock"
-import { ProjectCard } from "@/components/project-card"
+import Link from "next/link";
+import { useState } from "react";
+import { Clock } from "@/components/clock";
+import { ProjectCard } from "@/components/project-card";
 
 // Sample project data
 const projects = [
@@ -29,7 +29,8 @@ const projects = [
   },
   {
     id: 5,
-    title: "corechallenges: a platform to discuss the premier issues of our world",
+    title:
+      "corechallenges: a platform to discuss the premier issues of our world",
     tags: ["fullstack", "concept", "platform"],
   },
   {
@@ -42,16 +43,19 @@ const projects = [
     title: "driving school landing page",
     tags: ["design", "lead generation"],
   },
-]
+];
 
-const ITEMS_PER_PAGE = 8
+const ITEMS_PER_PAGE = 8;
 
 export default function Portfolio() {
-  const [currentPage, setCurrentPage] = useState(1)
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const totalPages = Math.ceil(projects.length / ITEMS_PER_PAGE)
-  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE
-  const currentProjects = projects.slice(startIndex, startIndex + ITEMS_PER_PAGE)
+  const totalPages = Math.ceil(projects.length / ITEMS_PER_PAGE);
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const currentProjects = projects.slice(
+    startIndex,
+    startIndex + ITEMS_PER_PAGE
+  );
 
   return (
     <main className="min-h-screen bg-background text-foreground p-6">
@@ -99,7 +103,7 @@ export default function Portfolio() {
           <button
             onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
             disabled={currentPage === 1}
-            className="w-8 h-8 flex items-center justify-center bg-secondary rounded-md disabled:opacity-50 transition-all duration-200 hover:bg-accent hover:shadow-sm text-sm"
+            className="w-8 h-8 flex items-center justify-center bg-secondary rounded-md disabled:opacity-50 transition-all duration-200 hover:bg-accent hover:shadow-md hover:translate-y-[-2px] text-sm"
             aria-label="Previous page"
           >
             ←
@@ -119,9 +123,11 @@ export default function Portfolio() {
           </div>
 
           <button
-            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            onClick={() =>
+              setCurrentPage((prev) => Math.min(prev + 1, totalPages))
+            }
             disabled={currentPage === totalPages}
-            className="w-8 h-8 flex items-center justify-center bg-secondary rounded-md disabled:opacity-50 transition-all duration-200 hover:bg-accent hover:shadow-sm text-sm"
+            className="w-8 h-8 flex items-center justify-center bg-secondary rounded-md disabled:opacity-50 transition-all duration-200 hover:bg-accent hover:shadow-md hover:translate-y-[-2px] text-sm"
             aria-label="Next page"
           >
             →
@@ -129,6 +135,5 @@ export default function Portfolio() {
         </div>
       )}
     </main>
-  )
+  );
 }
-
