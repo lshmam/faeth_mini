@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { Clock } from "@/components/clock";
 import { notFound } from "next/navigation";
+import { ExternalLink } from "lucide-react";
 
-// Sample project data with more details
 const projects = [
   {
     id: 1,
@@ -12,6 +12,7 @@ const projects = [
     tags: ["research", "concept", "development"],
     year: "2023",
     client: "ollo labs",
+    url: "https://example.com/ollo",
   },
   {
     id: 2,
@@ -21,6 +22,7 @@ const projects = [
     tags: ["digital-experience", "product design", "startup"],
     year: "2023",
     client: "chakra.engineering",
+    url: "https://example.com/chakra",
   },
   {
     id: 3,
@@ -30,6 +32,7 @@ const projects = [
     tags: ["headless-ecommerce", "marketing", "design"],
     year: "2024",
     client: "daemonwear",
+    url: "https://example.com/daemonwear",
   },
   {
     id: 4,
@@ -39,6 +42,7 @@ const projects = [
     tags: ["blockchain", "branding", "concept"],
     year: "2023",
     client: "silo health",
+    url: "https://example.com/silo",
   },
   {
     id: 5,
@@ -48,6 +52,7 @@ const projects = [
     tags: ["fullstack", "concept", "platform"],
     year: "2024",
     client: "corechallenges",
+    url: "https://example.com/corechallenges",
   },
   {
     id: 6,
@@ -57,6 +62,7 @@ const projects = [
     tags: ["design system", "analytics", "saas"],
     year: "2023",
     client: "bubbletask",
+    url: "https://example.com/bubbletask",
   },
   {
     id: 7,
@@ -66,6 +72,7 @@ const projects = [
     tags: ["design", "lead generation"],
     year: "2024",
     client: "eastvan driving school",
+    url: "https://example.com/driving",
   },
 ];
 
@@ -130,9 +137,18 @@ export default function ProjectDetail({ params }: { params: { id: string } }) {
             </div>
           </div>
 
-          <div className="h-64 bg-secondary rounded-lg mb-8 flex items-center justify-center">
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block h-64 bg-secondary hover:bg-accent rounded-lg mb-8 flex items-center justify-center transition-all duration-200 hover:shadow-md hover:translate-y-[-2px] relative"
+          >
             <p className="text-muted-foreground">project image placeholder</p>
-          </div>
+            <div className="absolute top-3 right-3 flex items-center gap-2 text-sm bg-background/20 backdrop-blur-sm px-3 py-1 rounded-md">
+              <span>view</span>
+              <ExternalLink size={16} />
+            </div>
+          </a>
 
           <div className="flex justify-between">
             {projectId > 1 && (
